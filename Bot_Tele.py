@@ -10,7 +10,7 @@ def awal_mengirim(message):
     chatid = message.chat.id
     markup = types.InlineKeyboardMarkup()
     itemA = types.InlineKeyboardButton('Portofolio Web', url='https://robbyns99.github.io/PortofolioWeb/')
-    itemB = types.InlineKeyboardButton('Profil', url='https://t.me/Robbyns99/')
+    itemB = types.InlineKeyboardButton('My Profil', url='http://t.me/6289609785921')
     
     bot.send_photo(chatid,open('img/Logo RNS.jpg','rb'))
     bot.send_message(chatid,
@@ -24,6 +24,38 @@ def awal_mengirim(message):
     markup.row(itemA,itemB)
     bot.send_message(message.chat.id,'Bisa klik salah satu ^_^',reply_markup=markup)
 
+@bot.message_handler(commands=['help'])
+def bantuan(message):
+    chatid = message.chat.id
+
+    bot.send_message(chatid,
+    '''
+    Kalian bisa pilih menu beriku :
+    /start - Untuk menampilkan tampilan awal portofolio tele bot 💻
+    /help - Membantu anda memilih menu yang ada di bot ⁉️
+    /contact - Bisa di hubungi memalui kontak yang ada 📥
+    /portofolioweb - Mengarahkan ke website portofolio 🌐
+    ''')
+
+@bot.message_handler(commands=['contact'])
+def kontak(message):
+    markup = types.InlineKeyboardMarkup()
+    itemA = types.InlineKeyboardButton('📞 Bisa chat WA', url='http://wa.me/6289609785921')
+    itemB = types.InlineKeyboardButton('📷 Bisa chat IG', url='https://www.instagram.com/robbyns99/')
+    itemC = types.InlineKeyboardButton('📧 Bisa chat Email', url='mailto:Robbynugrohos02@gmail.com')
+    itemD = types.InlineKeyboardButton('💬 Bisa chat Tele', url='http://t.me/6289609785921')
+
+    markup.row(itemA,itemB)
+    markup.row(itemC,itemD)
+    bot.send_message(message.chat.id,'Bisa dihubungi Sosmed berikut: ',reply_markup=markup)
+
+@bot.message_handler(commands=['portofolioweb'])
+def portofolio_web(message):
+   markup = types.InlineKeyboardMarkup()
+   itemA = types.InlineKeyboardButton('Portofolio Web', url='https://robbyns99.github.io/PortofolioWeb/')
+
+   markup.row(itemA)
+   bot.send_message(message.chat.id,'Klik menuju web Portofolio',reply_markup=markup)
 
 print('bot start running')
 
