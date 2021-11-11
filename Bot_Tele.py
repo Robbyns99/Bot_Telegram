@@ -43,8 +43,14 @@ def editing(message):
 
     bot.send_message(chatid,
     '''
-    Skill editing berguna untuk memberikan kesan/pesan menarik seseorang yang melihatnya. Menggunakan Tools video Kinemaster/Filmora/Cupcat, Tools foto Photoshop/Lightroom/CorelDraw. Apabila ingin melihat hasil bisa ketik "Lihat Video" atau "Lihat Foto", dan tunggu beberapa menit. 
+    Skill editing berguna untuk memberikan kesan/pesan menarik seseorang yang melihatnya. Menggunakan Tools video Kinemaster/Filmora/Cupcat, Tools foto Photoshop/Lightroom/CorelDraw. Apabila ingin melihat hasil bisa ketik "Lihat video" atau "Lihat foto", dan tunggu beberapa menit. 
     ''')
+
+@bot.message_handler(regexp='Lihat video')
+def tampilanDesain(message):
+    chatid = message.chat.id
+    bot.send_video(chatid,open('Edit Video/video.mp4','rb'))
+    bot.send_video(chatid,open('Edit Video/opening.mp4','rb'))
 
 @bot.message_handler(commands=['program'])
 def desain(message):
