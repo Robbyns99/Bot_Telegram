@@ -47,10 +47,17 @@ def editing(message):
     ''')
 
 @bot.message_handler(regexp='Lihat video')
-def tampilanDesain(message):
+def tampilanVideo(message):
     chatid = message.chat.id
     bot.send_video(chatid,open('Edit Video/video.mp4','rb'))
     bot.send_video(chatid,open('Edit Video/opening.mp4','rb'))
+
+@bot.message_handler(regexp='Lihat foto')
+def tampilanFoto(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid,open('Gambar Foto/FoodDrink.jpg','rb'))
+    bot.send_photo(chatid,open('Gambar Foto/Ilustrasi.png','rb'))
+    bot.send_photo(chatid,open('Gambar Foto/Moge.jpeg','rb'))
 
 @bot.message_handler(commands=['program'])
 def desain(message):
