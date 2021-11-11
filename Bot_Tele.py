@@ -30,8 +30,15 @@ def desain(message):
     Skill desain grafis berguna untuk komunikasi yang ingin disampaikan secara visual. Menggunakan Tools Pixelab, Canva, Photoshop, dan Corel Draw dalam pembuatan desain grafis. Apabila ingin melihat hasil bisa ketik "Lihat Desain", dan tunggu beberapa menit. 
     ''')
 
+@bot.message_handler(regexp='Lihat Desain')
+def tampilanDesain(message):
+    chatid = message.chat.id
+    bot.send_photo(chatid,open('Gambar Desain/Logo Info Magang.jpg','rb'))
+    bot.send_photo(chatid,open('Gambar Desain/MSC Pahlawan.png','rb'))
+    bot.send_photo(chatid,open('Gambar Desain/CV Robby 2.png','rb'))
+
 @bot.message_handler(commands=['editing'])
-def desain(message):
+def editing(message):
     chatid = message.chat.id
 
     bot.send_message(chatid,
