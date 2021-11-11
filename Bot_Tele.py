@@ -6,6 +6,7 @@ bot = telebot.TeleBot(api)
 
 @bot.message_handler(commands=['start'])
 def awal_mengirim(message):
+    print(message)
     chatid = message.chat.id
     username = message.from_user.username
     
@@ -105,5 +106,8 @@ def portofolio_web(message):
    bot.send_message(message.chat.id,'Klik menuju web Portofolio',reply_markup=markup)
 
 print('bot start running')
+# Pembuatan Bot Telegram ini dibuat oleh Robby Nugroho Setiawan, S.Kom
+# Jangan lupa follow github/instagram Robbyns99
+# Selamat Belajar. Boleh Nyontek asal memahami caranya  ^_^
 
 bot.polling()
